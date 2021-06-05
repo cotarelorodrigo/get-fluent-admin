@@ -32,23 +32,22 @@ export default function Login() {
     }
   
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='user'>User</label>
-                    <br></br>
-                    <input onChange={handleChange} name='user' type='text' placeholder='User' value={credentials.user}/>
-                </div>
-                <div>
-                    <label htmlFor='password'>Password</label>
-                    <br></br>
-                    <input onChange={handleChange} name='password' type='password' placeholder='Password' value={credentials.password} />
-                </div>
-                {invalidCredentials? (<strong>Invalid Credentials</strong>): (null) }
-                <div>
-                    <button>Login</button>
-                </div>
-            </form>
-        </>
+        <div class='Back'>
+            <div class='Login'>
+                <form onSubmit={handleSubmit}>
+                    <h1>Get Fluent</h1>
+                    <div>
+                        <input onChange={handleChange} name='user' type='text' placeholder='User' value={credentials.user}/>
+                    </div>
+                    <div>
+                        <input onChange={handleChange} name='password' type='password' placeholder='Password' value={credentials.password} />
+                    </div>
+                    {invalidCredentials? (<strong>Invalid Credentials</strong>): (null) }
+                    <div>
+                        <button>Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
   }

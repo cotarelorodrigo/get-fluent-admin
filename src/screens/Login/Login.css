@@ -1,0 +1,54 @@
+.body{
+    background-color: gray;
+}
+
+.Back {
+    background: url('https://nypost.com/wp-content/uploads/sites/2/2018/05/ai-way-you-walk.jpg?quality=90&strip=all&w=1024');
+    background-repeat: round;
+    height: 100vh;
+}
+
+.Login {
+    background: rgb(255,255,255);
+    background: linear-gradient(143deg, rgba(255,255,255,1) 0%, rgba(124,124,124,1) 76%, rgba(33,33,33,1) 100%, rgba(0,212,255,1) 100%);
+    border: 3px solid black;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Login strong {
+    color: red;
+    font-size: small;
+}
+
+.Login label {
+    color: black;
+    font-size: 30px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.Login h1 {
+    color:black;
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.Login button{
+    width: 85%;
+    height: 30px;
+    margin-top: 10%;
+    border: 2px solid black;
+}
+
+.Login input {
+    width: 80%;
+    height: 30px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+}
