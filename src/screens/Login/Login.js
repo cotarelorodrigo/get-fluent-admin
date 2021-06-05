@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
 import { useLocation } from "wouter"
 import "./Login.css"
 
@@ -7,6 +8,7 @@ export default function Login() {
         user: '',
         password: ''
     })
+    // eslint-disable-next-line
     const [invalidCredentials, setInvalidCredentials] = useState(false)
     const [path, pushLocation] = useLocation()
   
@@ -46,7 +48,7 @@ export default function Login() {
                 </div>
                 {invalidCredentials? (<strong>Invalid Credentials</strong>): (null) }
                 <div>
-                    <button>Login</button>
+                    <Button type="submit">Login</Button>
                 </div>
             </form>
         </>
