@@ -7,6 +7,7 @@ export default function Login() {
         user: '',
         password: ''
     })
+    // eslint-disable-next-line
     const [invalidCredentials, setInvalidCredentials] = useState(false)
     const [path, pushLocation] = useLocation()
   

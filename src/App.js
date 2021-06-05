@@ -5,8 +5,8 @@ import { Route } from "wouter"
 
 function App() {
   return (
-    <div className="App">
-      <section className="App-header">
+    <div>
+      <section>
         <Route 
           component={Login}
           path="/" />
