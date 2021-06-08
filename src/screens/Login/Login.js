@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "wouter"
+import history from '../../history';
 import "./Login.css"
 
 export default function Login() {
@@ -9,7 +10,6 @@ export default function Login() {
     })
     // eslint-disable-next-line
     const [invalidCredentials, setInvalidCredentials] = useState(false)
-    const [path, pushLocation] = useLocation()
   
     const handleSubmit = evt => {
         evt.preventDefault()
@@ -17,7 +17,7 @@ export default function Login() {
         console.log(credentials.user); // the name of the form element
         console.log(credentials.password)
         if(credentials.user === 'admin' & credentials.password === 'admin'){
-            pushLocation('/home')
+            history.push('/home')
         } else {
             setInvalidCredentials(true)
         }

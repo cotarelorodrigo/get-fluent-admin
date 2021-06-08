@@ -1,12 +1,12 @@
 import React from 'react'
-import "./Home.css"
+import "./Denuncias.css"
 
 export default function Home() {
 
     return (        
-        <div className='home'>            
+        <div className='denuncias'>            
             <h1>
-                Home
+                Denuncias
             </h1>
         </div>
     )
