@@ -13,6 +13,8 @@ const Nav = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding:30px;
+  color:white;
 `;
 
 const NavIcon = styled(Link)`
