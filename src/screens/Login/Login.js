@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useLocation } from "wouter"
-import history from '../../history';
+// import { useLocation, Redirect } from "wouter"
+// import history from '../../history';
+import App from "../../App.js"
 import "./Login.css"
 
 export default function Login() {
@@ -10,6 +11,7 @@ export default function Login() {
     })
     // eslint-disable-next-line
     const [invalidCredentials, setInvalidCredentials] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
   
     const handleSubmit = evt => {
         evt.preventDefault()
@@ -17,7 +19,11 @@ export default function Login() {
         console.log(credentials.user); // the name of the form element
         console.log(credentials.password)
         if(credentials.user === 'admin' & credentials.password === 'admin'){
-            history.push('/home')
+            setCredentials({
+                user: credentials.user,
+                password: credentials.password
+            })
+            setIsLoggedIn(true)
         } else {
             setInvalidCredentials(true)
         }
@@ -33,22 +39,29 @@ export default function Login() {
     }
   
     return (
-        <div class='Back'>
-            <div class='Login'>
-                <form onSubmit={handleSubmit}>
-                    <h1>Get Fluent</h1>
-                    <div>
-                        <input onChange={handleChange} name='user' type='text' placeholder='User' value={credentials.user}/>
-                    </div>
-                    <div>
-                        <input onChange={handleChange} name='password' type='password' placeholder='Password' value={credentials.password} />
-                    </div>
-                    {invalidCredentials? (<strong>Invalid Credentials</strong>): (null) }
-                    <div>
-                        <button>Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <>
+        {
+            isLoggedIn 
+            ? <App/>
+            :
+            <div class='Back'>
+                <div class='Login'>
+                    <form onSubmit={handleSubmit}>
+                        <h1>Get Fluent</h1>
+                        <div>
+                            <input onChange={handleChange} name='user' type='text' placeholder='User' value={credentials.user}/>
+                        </div>
+                        <div>
+                            <input onChange={handleChange} name='password' type='password' placeholder='Password' value={credentials.password} />
+                        </div>
+                        {invalidCredentials? (<strong>Invalid Credentials</strong>): (null) }
+                        <div>
+                            <button>Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>    
+    }
+        </>
     );
   }
