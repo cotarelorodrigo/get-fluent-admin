@@ -1,20 +1,31 @@
 import './App.css';
-import Home from './screens/Home/Home.js'
-import Login from './screens/Login/Login.js'
-import { Route } from "wouter"
+import Home from './screens/Home'
+import Login from './screens/Login'
+import Sidebar from './components/SideBar'
+import { BrowserRouter as Router, withRouter, Route } from 'react-router-dom';
+
+
+const Main = withRouter(({location}) => {
+  return(
+    <div>
+      {
+        location.pathname !== '/' && <Sidebar/>
+      }
+      <Route exact path="/" component={Login} />
+      <Route exact path="/home" component={Home} />
+    </div>
+  )
+
+})
 
 function App() {
   return (
-    <div>
-      <section>
-        <Route 
-          component={Login}
-          path="/" />
-        <Route 
-          component={Home}
-          path="/home" />
-      </section>
-    </div>
+    <Router>
+      <Main/>
+      <div className="App">
+        <Sidebar />
+      </div>
+    </Router>
   );
 }
 
