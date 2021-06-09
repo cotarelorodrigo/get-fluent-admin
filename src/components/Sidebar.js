@@ -53,7 +53,7 @@ const Sidebar = () => {
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>   
-        <img src="logo192.png" height={40} />         
+        <img src="GetFluent2.png" height={100} />         
           <h1>GetFluent</h1>
           <Button style={{ marginLeft: "auto" }} onClick={logout} variant="contained">Logout</Button>
         </Nav>        
