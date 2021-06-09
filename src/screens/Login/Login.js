@@ -23,6 +23,7 @@ export default function Login() {
                 user: credentials.user,
                 password: credentials.password
             })
+            localStorage.setItem('token', 'token');
             setIsLoggedIn(true)
         } else {
             setInvalidCredentials(true)
@@ -41,7 +42,7 @@ export default function Login() {
     return (
         <>
         {
-            isLoggedIn 
+            (isLoggedIn || localStorage.getItem('token') === 'token')
             ? <App/>
             :
             <div class='Back'>
