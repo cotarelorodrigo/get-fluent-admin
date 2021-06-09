@@ -40,6 +40,10 @@ const SidebarNav = styled.nav`
   z-index: 10;
 `;
 
+const SidebarWrap = styled.div`
+  width: 100%;
+`;
+
 const logout = () => localStorage.clear();
 
 const Sidebar = () => {
@@ -55,11 +59,11 @@ const Sidebar = () => {
           </button>    
         </Nav>        
         <SidebarNav sidebar={sidebar}>
-          <div className="SidebarWrap">
+          <SidebarWrap>
             {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}
-          </div>
+          </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>
     </>
