@@ -4,6 +4,7 @@ import {
   CDBSidebarContent,
   CDBSidebarFooter,
   CDBSidebarMenu,
+  CDBSidebarHeader,
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { Navbar } from 'react-bootstrap';
@@ -25,6 +26,16 @@ const Sidebar = () => {
       style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
     >
       <CDBSidebar textColor="#fff" backgroundColor="#333">
+
+        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+            <a
+                href="/"
+                className="text-decoration-none"
+                style={{ color: 'inherit' }}
+            >
+                Menu
+            </a>
+        </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
