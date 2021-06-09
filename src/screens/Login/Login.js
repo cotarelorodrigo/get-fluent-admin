@@ -9,6 +9,7 @@ export default function Login() {
     })
     // eslint-disable-next-line
     const [invalidCredentials, setInvalidCredentials] = useState(false)
+    const [invalidUser, setInvalidUser] = useState(false)
     const [path, pushLocation] = useLocation()
   
     const handleSubmit = evt => {
@@ -16,10 +17,14 @@ export default function Login() {
         // navegar a otra ruta
         console.log(credentials.user); // the name of the form element
         console.log(credentials.password)
+        setInvalidCredentials(false)
+        setInvalidUser(false)
         if(credentials.user === 'admin' & credentials.password === 'admin'){
             pushLocation('/home')
-        } else {
+        } else if (credentials.user === 'admin'){
             setInvalidCredentials(true)
+        } else {
+            setInvalidUser(true)
         }
     }
 
@@ -38,12 +43,13 @@ export default function Login() {
                 <form onSubmit={handleSubmit}>
                     <h1>Get Fluent</h1>
                     <div>
-                        <input onChange={handleChange} name='user' type='text' placeholder='User' value={credentials.user}/>
+                        <input onChange={handleChange} name='user' type='text' placeholder='Usuario' value={credentials.user}/>
                     </div>
                     <div>
-                        <input onChange={handleChange} name='password' type='password' placeholder='Password' value={credentials.password} />
+                        <input onChange={handleChange} name='password' type='password' placeholder='Contraseña' value={credentials.password} />
                     </div>
-                    {invalidCredentials? (<strong>Invalid Credentials</strong>): (null) }
+                    {invalidCredentials? (<strong>Credenciales inválidas</strong>): (null) }
+                    {invalidUser? (<strong>Acceso restringido para usuarios administradores</strong>): (null) }
                     <div>
                         <button>Login</button>
                     </div>
