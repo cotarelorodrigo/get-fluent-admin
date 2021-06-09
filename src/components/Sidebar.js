@@ -39,14 +39,9 @@ const SidebarNav = styled.nav`
   z-index: 10;
 `;
 
-const SidebarWrap = styled.div`
-  width: 100%;
-`;
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
 
   return (
     <>
@@ -55,11 +50,11 @@ const Sidebar = () => {
           <h1>GetFluent</h1>
         </Nav>        
         <SidebarNav sidebar={sidebar}>
-          <SidebarWrap>
+          <div className="SidebarWrap">
             {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}
-          </SidebarWrap>
+          </div>
         </SidebarNav>
       </IconContext.Provider>
     </>
