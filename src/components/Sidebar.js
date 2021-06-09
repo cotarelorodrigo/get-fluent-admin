@@ -44,7 +44,10 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-const logout = () => localStorage.clear();
+const logout = () => {
+  localStorage.clear();
+  window.location.reload();
+}
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
