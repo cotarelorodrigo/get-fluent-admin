@@ -6,6 +6,7 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
+import PublicApp from '../PublicApp.js';
 
 const Nav = styled.div`
   background: #6f79a8;
@@ -39,6 +40,7 @@ const SidebarNav = styled.nav`
   z-index: 10;
 `;
 
+const logout = () => localStorage.clear();
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -48,6 +50,9 @@ const Sidebar = () => {
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>            
           <h1>GetFluent</h1>
+          <button style={{ marginLeft: "auto" }} onClick={logout}>
+            Logout
+          </button>    
         </Nav>        
         <SidebarNav sidebar={sidebar}>
           <div className="SidebarWrap">
@@ -59,6 +64,7 @@ const Sidebar = () => {
       </IconContext.Provider>
     </>
   );
+
 };
 
 export default Sidebar;
