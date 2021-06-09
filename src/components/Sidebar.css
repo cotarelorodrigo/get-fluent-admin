@@ -1,0 +1,13 @@
+.SidebarWrap {
+    width: 100%;
+}
+
+.Nav {
+    background: #6f79a8;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding:30px;
+    color:white;
+  }
