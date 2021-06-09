@@ -6,7 +6,7 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
-import PublicApp from '../PublicApp.js';
+import Button from '@material-ui/core/Button';
 
 const Nav = styled.div`
   background: #6f79a8;
@@ -55,9 +55,7 @@ const Sidebar = () => {
         <Nav>   
         <img src="logo192.png" height={40} />         
           <h1>GetFluent</h1>
-          <button style={{ marginLeft: "auto" }} onClick={logout}>
-            Logout
-          </button>    
+          <Button style={{ marginLeft: "auto" }} onClick={logout} variant="contained">Logout</Button>
         </Nav>        
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
