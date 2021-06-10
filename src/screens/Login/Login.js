@@ -12,12 +12,15 @@ export default function Login() {
     // eslint-disable-next-line
     const [invalidCredentials, setInvalidCredentials] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [invalidUser, setInvalidUser] = useState(false)
   
     const handleSubmit = evt => {
         evt.preventDefault()
         // navegar a otra ruta
         console.log(credentials.user); // the name of the form element
         console.log(credentials.password)
+        setInvalidCredentials(false)
+        setInvalidUser(false)
         if(credentials.user === 'admin' & credentials.password === 'admin'){
             setCredentials({
                 user: credentials.user,
@@ -25,8 +28,10 @@ export default function Login() {
             })
             localStorage.setItem('token', 'token');
             setIsLoggedIn(true)
-        } else {
+        } else if (credentials.user === 'admin'){
             setInvalidCredentials(true)
+        } else {
+            setInvalidUser(true)
         }
     }
 
