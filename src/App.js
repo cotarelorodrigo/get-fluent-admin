@@ -1,20 +1,18 @@
 import './App.css';
 import Home from './screens/Home/Home.js'
-import Login from './screens/Login/Login.js'
-import { Route } from "wouter"
+import Denuncias from './screens/Denuncias/Denuncias'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar'
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <section>
-        <Route 
-          component={Login}
-          path="/" />
-        <Route 
-          component={Home}
-          path="/home" />
-      </section>
-    </div>
+    <Router>
+      <Sidebar />
+      <Switch>
+        <Route path='/denuncias' exact component={Denuncias} />
+        <Route path='/' exact component={Home} />
+      </Switch>
+    </Router>
   );
 }
 

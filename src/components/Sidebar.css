@@ -1,0 +1,23 @@
+.logout {
+    margin-left: auto;
+    color:black;
+    background-color: #e8eaf6;
+    border: 3px solid #000000;
+    border-radius: 8px;
+    font-size: large;
+}
+
+.SidebarWrap {
+    width: 100%;
+}
+
+.Nav {
+    background: #6f79a8;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding:30px;
+    color:white;
+  }
+

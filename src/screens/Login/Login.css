@@ -4,9 +4,12 @@
 
 .Back {
     background: url('https://nypost.com/wp-content/uploads/sites/2/2018/05/ai-way-you-walk.jpg?quality=90&strip=all&w=1024');
+    height: 100%; 
+
+    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    padding:20px;
+    background-size: cover;
     height: 100vh;
 }
 
