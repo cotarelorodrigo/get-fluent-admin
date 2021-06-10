@@ -11,3 +11,11 @@
     padding:30px;
     color:white;
   }
+
+.logout {
+    margin-left: auto;
+    color:black;
+    background-color: #e8eaf6;
+    border: 3px solid #000000;
+    border-radius: 8px;
+}

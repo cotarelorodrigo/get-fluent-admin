@@ -8,6 +8,8 @@ import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
 import Button from '@material-ui/core/Button';
 
+import "./Sidebar.css"
+
 const Nav = styled.div`
   background: #6f79a8;
   height: 80px;
@@ -16,7 +18,8 @@ const Nav = styled.div`
   align-items: center;
   padding:30px;
   color:white;
-`;
+  border-bottom: 3px solid #000000;
+  `;
 
 const NavIcon = styled(Link)`
   margin-left: 2rem;
@@ -38,6 +41,7 @@ const SidebarNav = styled.nav`
   left: 0;
   transition: 350ms;
   z-index: 10;
+  border-right: 3px solid #000000;
 `;
 
 const SidebarWrap = styled.div`
@@ -58,7 +62,7 @@ const Sidebar = () => {
         <Nav>   
         <img src="GetFluent2.png" height={100} />         
           <h1>GetFluent</h1>
-          <Button style={{ marginLeft: "auto" }} onClick={logout} variant="contained">Logout</Button>
+          <Button className="logout" onClick={logout} variant="contained">Logout</Button>
         </Nav>        
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
