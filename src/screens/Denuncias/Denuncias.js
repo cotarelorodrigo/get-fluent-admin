@@ -1,13 +1,13 @@
 import React from 'react'
+import ListaDenunciados from '../../components/ListaDenunciados'
 import "./Denuncias.css"
 
-export default function Home() {
+export default function Denuncias() {
 
-    return (        
-        <div className='denuncias'>            
-            <h1>
-                Denuncias
-            </h1>
+
+    return (
+        <div>
+            <ListaDenunciados />
         </div>
     )
 }
