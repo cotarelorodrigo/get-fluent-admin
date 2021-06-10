@@ -62,7 +62,8 @@ const Sidebar = () => {
         <Nav>   
         <img src="GetFluent2.png" height={100} />         
           <h1>GetFluent</h1>
-          <Button className="logout" onClick={logout} variant="contained">Logout</Button>
+          {/* <Button style={{marginLeft: "auto"}} onClick={logout} variant="contained">Logout</Button> */}
+          <Button class="logout" onClick={logout} variant="contained">Logout</Button>
         </Nav>        
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
