@@ -19,7 +19,7 @@ const columns = [
                 ]  
 
 
-export default function ListaDenunciados() {
+export default function ListaDenunciados({ searchKeyword }) {
     const [usersWithDenuncias, setusersWithDenuncias] = useState([])
 
 
@@ -42,6 +42,9 @@ export default function ListaDenunciados() {
                 }
             })
             usuarios = usuarios["users"].filter(user => user["cantidad_denuncias"] > 0)
+            if (searchKeyword) {
+                usuarios = usuarios.filter(user => user["name"].startsWith(searchKeyword))
+            }
             usuarios.forEach(user => {
                 var dates = denuncias["denuncias"]
                                 .filter(denuncia => denuncia["denunciado"] === user["email"])
@@ -63,7 +66,7 @@ export default function ListaDenunciados() {
             setusersWithDenuncias(usuarios)
         })
     
-    }, [])
+    }, [searchKeyword])
 
     return (
         <MDBTable scrollY maxHeight="50vh">

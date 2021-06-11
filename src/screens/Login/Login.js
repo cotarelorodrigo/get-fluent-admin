@@ -55,7 +55,7 @@ export default function Login() {
                     <form onSubmit={handleSubmit}>
                         <h1>Get Fluent</h1>
                         <div>
-                            <input onChange={handleChange} name='user' type='text' placeholder='Usuario' value={credentials.user}/>
+                            <input onChange={handleChange} name='user' type='text' placeholder='Search a user here...' value={credentials.user}/>
                         </div>
                         <div>
                             <input onChange={handleChange} name='password' type='password' placeholder='Contraseña' value={credentials.password} />
