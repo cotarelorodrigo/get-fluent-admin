@@ -7,6 +7,6 @@
   }
 
 .div-main {
-  position: absolute;
-  left: 250px;
+  padding-left: 250px;
+  background-color: red;
 }
