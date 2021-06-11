@@ -1,13 +1,14 @@
 import React from 'react'
+import DetallePorDenunciado from "../DetallePorDenunciado/DetallePorDenunciado"
 import "./Denuncias.css"
 
-export default function Home() {
+export default function Denuncias({history}) {
 
-    return (        
-        <div className='denuncias'>            
-            <h1>
-                Denuncias
-            </h1>
-        </div>
+    const denunciado = "longo.gnr@hotmail.com"
+
+    return (
+        <>
+            <DetallePorDenunciado history={history} denunciado={denunciado}/>
+        </>
     )
 }
