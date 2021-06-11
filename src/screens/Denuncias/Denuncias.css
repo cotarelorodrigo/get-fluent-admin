@@ -1,5 +1,10 @@
 .denuncias {
   padding-left:250px;
   height: 90vh;
-  font-size: 3rem;
+}
+
+.table {
+  padding:70px;
+  padding-right:50px;
+
 }
