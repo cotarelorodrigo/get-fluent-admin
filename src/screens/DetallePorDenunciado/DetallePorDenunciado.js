@@ -14,10 +14,9 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     const keysToKeep = ['denunciante', 'completeName', 'motivo', 'timestamp', 'estado']
 
     const formatDenuncias = (denuncias, users) => {
-        var mapped = denuncias.map(d => 
-            ({...d, ...users.find(u => u.email === d.denunciante)}))
-          
-        mapped.forEach(r => {
+        var merged = denuncias.map(d => 
+            ({...d, ...users.find(u => u.email === d.denunciante)}));
+        merged.forEach(r => {
             r['completeName'] = r['name'] + ' ' + r['lastName'];
             r = Object.keys(r)
                 .filter(key => keysToKeep.includes(key))
@@ -25,8 +24,9 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                     obj[key] = r[key];
                     return obj;
                 }, {});
+            console.log('r es ', r)
         });
-        return mapped;
+        return merged;
     }
 
     useEffect(() => {
