@@ -7,7 +7,13 @@ export default function Denuncias() {
 
     return (
         <div class="div-main">
-            <ListaDenunciados />
+            <div class="flexbox-container">
+                <div class="flexbox-item flexbox-item-1"></div>
+                <div class="flexbox-item flexbox-item-2"></div>
+                <div class="flexbox-item flexbox-item-3">
+                    <ListaDenunciados />
+                </div>
+            </div>
         </div>
     )
 }

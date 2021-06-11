@@ -66,7 +66,7 @@ export default function ListaDenunciados() {
     }, [])
 
     return (
-        <MDBTable scrollY>
+        <MDBTable scrollY maxHeight="50vh">
             <MDBTableHead columns={columns} />
             <MDBTableBody rows={usersWithDenuncias} />
         </MDBTable>
