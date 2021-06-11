@@ -18,14 +18,10 @@ const columns = [
                     }
                 ]  
 
-const USERS_INFO = [{'denunciado':'Mona', 'cantidad_denuncias':5, 'fecha':'2021-06-01'}, 
-                    {'denunciado':'Cota', 'cantidad_denuncias':3, 'fecha':'2021-05-13'},
-                    {'denunciado':'Nico', 'cantidad_denuncias':2, 'fecha':'2021-03-08'}]
 
 export default function ListaDenunciados() {
     const [usersWithDenuncias, setusersWithDenuncias] = useState([])
 
-    
 
     useEffect(() => {
         Promise.all([
