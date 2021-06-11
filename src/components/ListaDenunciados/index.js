@@ -1,32 +1,38 @@
-import React from 'react'
-import Table from 'react-bootstrap/Table'
+import React, { useState, useEffect } from "react";
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
-const USERS_INFO = [{'nombre':'Mona', 'cantidad_denuncias':5, 'fecha':'2021-06-01'}, 
-                    {'nombre':'Cota', 'cantidad_denuncias':3, 'fecha':'2021-05-13'},
-                    {'nombre':'Nico', 'cantidad_denuncias':2, 'fecha':'2021-03-08'}]
+const columns = [
+                    {
+                        label: 'Denunciado',
+                        field: 'denunciado',
+                    },
+                    {
+                        label: '#',
+                        field: 'cantidad_denuncias',
+                        sort: 'asc'
+                    },
+                    {
+                        label: 'Fecha',
+                        field: 'fecha',
+                        sort: 'asc'
+                    }
+                ]  
+
+const USERS_INFO = [{'denunciado':'Mona', 'cantidad_denuncias':5, 'fecha':'2021-06-01'}, 
+                    {'denunciado':'Cota', 'cantidad_denuncias':3, 'fecha':'2021-05-13'},
+                    {'denunciado':'Nico', 'cantidad_denuncias':2, 'fecha':'2021-03-08'}]
 
 export default function ListaDenunciados() {
+    const [usersWithDenuncias, setusersWithDenuncias] = useState([])
+
+    useEffect(() => {
+        setusersWithDenuncias(USERS_INFO)
+    }, [])
 
     return (
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>Denunciado</th>
-                    <th>#</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    USERS_INFO.map(denunciado => 
-                        <tr>
-                            <td>{denunciado.nombre}</td>
-                            <td>{denunciado.cantidad_denuncias}</td>
-                            <td>{denunciado.fecha}</td>
-                        </tr>
-                    )
-                }
-            </tbody>
-        </Table>
+        <MDBTable scrollY>
+            <MDBTableHead columns={columns} />
+            <MDBTableBody rows={usersWithDenuncias} />
+        </MDBTable>
     )
 }
