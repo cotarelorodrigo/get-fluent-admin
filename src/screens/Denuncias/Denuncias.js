@@ -6,7 +6,7 @@ export default function Denuncias() {
 
 
     return (
-        <div>
+        <div class="div-main">
             <ListaDenunciados />
         </div>
     )
