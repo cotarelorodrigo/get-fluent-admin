@@ -5,3 +5,8 @@
     justify-content: center;
     font-size: 3rem;
   }
+
+.div-main {
+  position: absolute;
+  left: 250px;
+}
