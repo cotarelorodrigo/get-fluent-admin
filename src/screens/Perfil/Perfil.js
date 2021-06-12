@@ -5,8 +5,8 @@ const Perfil = ({user}) => {
     console.log('User es ', user)
     return (
         <>
-            <h2> {user.name} {user.lastName} </h2>
             <div className='Perfil'>
+                <h2> {user.name} {user.lastName} </h2>
                 <div className='Perfil-left'>
                     <div>
                     <strong>Habla:</strong> {user.nativeLanguage}

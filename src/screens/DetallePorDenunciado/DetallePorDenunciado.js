@@ -3,6 +3,8 @@ import axios from 'axios';
 import TablaDeDenuncias from '../TablaDeDenuncias/TablaDeDenuncias';
 import Perfil from '../Perfil/Perfil';
 
+import './DetallePorDenunciado.css'
+
 const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 // denuncias/longo.gnr%40hotmail.com
 
@@ -10,7 +12,7 @@ const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 
 const DetallePorDenunciado = ({denunciado, ...props}) => {
     const [perfil, setPerfil] = useState([]);
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
     const [denuncias, setDenuncias] = useState([]);
     const keysToKeep = ['denunciante', 'completeName', 'motivo', 'timestamp', 'estado']
 
@@ -47,7 +49,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     useEffect(() => {
         axios.get(server + 'user/?email=' + denunciado)
         .then(userResponse => {
-            setUsers(userResponse.data.users)
+            // setUsers(userResponse.data.users)
             axios.get(server + 'denuncias/' + denunciado)
             .then(response => {
                 setDenuncias(formatDenuncias(response.data.denuncias, userResponse.data.users));

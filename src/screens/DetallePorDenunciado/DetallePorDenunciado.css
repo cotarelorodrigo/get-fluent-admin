@@ -1,6 +1,12 @@
 .denuncias {
-    display: flex;
-    height: 90vh;
-    font-size: 3rem;
-    padding-left:250px
-  }
+  padding-left:250px;
+  height: 90vh;
+}
+
+.table {
+  padding: 20px 50px 0px 20px;
+}
+
+.profile {
+  padding: 30px;
+}
