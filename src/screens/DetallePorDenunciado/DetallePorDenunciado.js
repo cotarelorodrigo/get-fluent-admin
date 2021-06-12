@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import TablaDeDenuncias from '../TablaDeDenuncias/TablaDeDenuncias';
 import Perfil from '../Perfil/Perfil';
 
@@ -68,6 +69,11 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     return (
         <>
             <div className="denuncias"> 
+            <Breadcrumb>
+                <Breadcrumb.Item href="#">Denuncias</Breadcrumb.Item>
+                <Breadcrumb.Item active>{perfil.name} {perfil.lastName}</Breadcrumb.Item>
+            </Breadcrumb>
+
                 <h1>Detalle por denunciado: {denunciado}</h1>
                 <div className="profile">
                     <Perfil user={perfil}/>
