@@ -7,12 +7,16 @@ const columns = [
                         field: 'completeName',
                     },
                     {
+                        label: 'Email',
+                        field: 'email',
+                    },
+                    {
                         label: 'Motivo',
                         field: 'motivo',
                     },
                     {
                         label: 'Fecha',
-                        field: 'timestamp',
+                        field: 'fecha',
                         sort: 'asc'
                     }
                     // {

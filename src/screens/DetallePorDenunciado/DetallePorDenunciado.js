@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TablaDeDenuncias from '../TablaDeDenuncias/TablaDeDenuncias';
+import Perfil from '../Perfil/Perfil';
 
 const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 // denuncias/longo.gnr%40hotmail.com
@@ -16,15 +17,29 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     const formatDenuncias = (denuncias, users) => {
         var merged = denuncias.map(d => 
             ({...d, ...users.find(u => u.email === d.denunciante)}));
-        merged.forEach(r => {
-            r['completeName'] = r['name'] + ' ' + r['lastName'];
-            r = Object.keys(r)
-                .filter(key => keysToKeep.includes(key))
-                .reduce((obj, key) => {
-                    obj[key] = r[key];
-                    return obj;
-                }, {});
-            console.log('r es ', r)
+        merged = merged.map(m => {
+            m['completeName'] = m['name'] + ' ' + m['lastName']
+            m['timestamp'] = Date.parse(m.timestamp)
+            return m
+        }).sort((x, y) => {
+            return x.timestamp - y.timestamp;
+        })
+        merged = merged.map(m => {
+            const formatDate = (timestamp) =>{
+                var x=new Date(timestamp);
+                var dd = x.getDate();
+                var mm = x.getMonth()+1;
+                var yy = x.getFullYear();
+                return dd +"/" + mm+"/" + yy;
+             }        
+            return {
+                completeName: m.name + ' ' + m.lastName,
+                email: m.email,
+                motivo: m.motivo,
+                // fecha: formatDate(Date.parse(m.timestamp)),
+                fecha: formatDate(m.timestamp),
+                estado: m.estado
+            }
         });
         return merged;
     }
@@ -35,9 +50,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
             setUsers(userResponse.data.users)
             axios.get(server + 'denuncias/' + denunciado)
             .then(response => {
-                let formatted = formatDenuncias(response.data.denuncias, userResponse.data.users);
-                console.log('Formatted is ', formatted)
-                setDenuncias(formatted);
+                setDenuncias(formatDenuncias(response.data.denuncias, userResponse.data.users));
             });    
         })
     }, []);
@@ -45,7 +58,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
         axios.get(server + 'user/' + denunciado)
         .then(response => {
             console.log('response para perfil es ', response.data);
-            setPerfil(response.data);
+            setPerfil(response.data.data);
         });
     }, []) 
     
@@ -54,6 +67,9 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
         <>
             <div className="denuncias"> 
                 <h1>Detalle por denunciado: {denunciado}</h1>
+                <div className="profile">
+                    <Perfil user={perfil}/>
+                </div>
                 <div className="table">
                     <TablaDeDenuncias denuncias={denuncias}/>
                 </div>
