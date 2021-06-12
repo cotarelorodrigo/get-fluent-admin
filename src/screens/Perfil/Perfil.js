@@ -1,14 +1,26 @@
 import React from 'react';
+import './Perfil.css'
 
 const Perfil = ({user}) => {
     console.log('User es ', user)
     return (
         <>
-        <h2> {user.name} {user.lastName} </h2>
-        <div> Habla: {user.nativeLanguage}</div>
-        <div> Aprende: {user.interestLanguage}</div>
-        <div> Aprende: {user.interestLanguage}</div>
-        <div> Intereses: {user.topics}</div>
+            <h2> {user.name} {user.lastName} </h2>
+            <div className='Perfil'>
+                <div className='Perfil-left'>
+                    <div>
+                    <strong>Habla:</strong> {user.nativeLanguage}
+                    </div>
+                    <br></br>
+                    <div>
+                    <strong>Intereses:</strong> {user.topics}
+                    </div>
+                </div>
+                <div className='Perfil-center'>
+                    <strong>Aprende:</strong> {user.interestLanguage}
+                </div>
+                <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
+            </div>
         </>
     )
 }
