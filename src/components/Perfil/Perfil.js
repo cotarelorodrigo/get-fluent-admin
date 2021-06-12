@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import { FaLock, FaLockOpen } from 'react-icons/fa';
 import './Perfil.css'
 
 const Perfil = ({user}) => {
@@ -15,11 +17,15 @@ const Perfil = ({user}) => {
                     <div>
                     <strong>Intereses:</strong> {user.topics}
                     </div>
+                    <br></br>
+                    <Button className='Between-buttons' size='lg'><FaLock/></Button>
+                    <Button className='Between-buttons' size='lg'><FaLockOpen/></Button>
                 </div>
                 <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
                 </div>
                 <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
+                
             </div>
         </>
     )

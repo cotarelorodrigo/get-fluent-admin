@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
-import TablaDeDenuncias from '../TablaDeDenuncias/TablaDeDenuncias';
-import Perfil from '../Perfil/Perfil';
+import { MDBBtn } from 'mdbreact';
+import TablaDeDenuncias from '../../components/TablaDeDenuncias/TablaDeDenuncias';
+import Perfil from '../../components/Perfil/Perfil';
 
 import './DetallePorDenunciado.css'
-
 const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
-// denuncias/longo.gnr%40hotmail.com
-
-
 
 const DetallePorDenunciado = ({denunciado, ...props}) => {
     const [perfil, setPerfil] = useState([]);
-    // const [users, setUsers] = useState([]);
     const [denuncias, setDenuncias] = useState([]);
-    const keysToKeep = ['denunciante', 'completeName', 'motivo', 'timestamp', 'estado']
 
     const formatDenuncias = (denuncias, users) => {
         var merged = denuncias.map(d => 
@@ -39,9 +34,9 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                 completeName: m.name + ' ' + m.lastName,
                 email: m.email,
                 motivo: m.motivo,
-                // fecha: formatDate(Date.parse(m.timestamp)),
                 fecha: formatDate(m.timestamp),
-                estado: m.estado
+                estado: m.estado,
+                // accion: <MDBBtn color="purple" size="sm">Button</MDBBtn>
             }
         });
         return merged;
@@ -50,7 +45,6 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     useEffect(() => {
         axios.get(server + 'user/?email=' + denunciado)
         .then(userResponse => {
-            // setUsers(userResponse.data.users)
             axios.get(server + 'denuncias/' + denunciado)
             .then(response => {
                 setDenuncias(formatDenuncias(response.data.denuncias, userResponse.data.users));
