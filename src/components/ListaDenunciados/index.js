@@ -51,7 +51,7 @@ export default function ListaDenunciados({ searchKeyword }) {
             })
             usuarios = usuarios["users"].filter(user => user["cantidad_denuncias"] > 0)
             if (searchKeyword) {
-                usuarios = usuarios.filter(user => user["name"].startsWith(searchKeyword))
+                usuarios = usuarios.filter(user => user["name"].toLowerCase().startsWith(searchKeyword.toLowerCase()))
             }
             usuarios.forEach(user => {
                 var dates = denuncias["denuncias"]
