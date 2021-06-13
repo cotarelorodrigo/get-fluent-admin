@@ -26,7 +26,7 @@ export default function Denuncias() {
                 <div class="flexbox-item flexbox-item-2">
                     <form onSubmit={handleSubmit}>
                         <input onChange={handleChange} style={{width: "90%"}} type='text' placeholder='Busca tu usuario' value={keyword}/>
-                        <button>Search</button>
+                        <button>Buscar</button>
                     </form>
                 </div>
                 <div class="flexbox-item flexbox-item-3">
