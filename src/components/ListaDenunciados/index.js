@@ -74,6 +74,11 @@ export default function ListaDenunciados({ searchKeyword }) {
                     ver:  <a href={link}>Ver</a> 
                 }
             });
+
+            usuarios.sort(function(a,b){
+                return new Date(a.fecha) - new Date(b.fecha)
+            })
+
             setusersWithDenuncias(usuarios)
         })
     
