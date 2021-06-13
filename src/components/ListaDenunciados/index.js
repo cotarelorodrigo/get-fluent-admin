@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
+const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 const columns = [
                     {
                         label: 'Denunciado',
@@ -33,8 +34,8 @@ export default function ListaDenunciados({ searchKeyword }) {
 
     useEffect(() => {
         Promise.all([
-            fetch("http://localhost:8000/denuncias/").then(res => res.json()),
-            fetch("http://localhost:8000/user/?email=all").then(res => res.json())
+            fetch(server + "denuncias/").then(res => res.json()),
+            fetch(server + "/user/?email=all").then(res => res.json())
         ]).then(([denuncias, usuarios]) => {
             console.log("Denuncias: " + denuncias)
             console.log("Users: " + usuarios)
