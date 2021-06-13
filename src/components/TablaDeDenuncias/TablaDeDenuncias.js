@@ -26,10 +26,6 @@ const columns = [
                 ]  
 
 const TablaDeDenuncias = ({denuncias}) => {
-        // const newDenuncias = denuncias.slice()
-        // newDenuncias.forEach(r => {
-        //     r['accion'] = <MDBBtn color="purple" size="sm">Button</MDBBtn>
-        // })
         return (
         <MDBTable scrollY>
             <MDBTableHead columns={columns} />

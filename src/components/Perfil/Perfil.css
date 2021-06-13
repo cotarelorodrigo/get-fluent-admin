@@ -26,6 +26,8 @@ html, body, #root {
     padding: 0px 50px 0px 0px;
 }
 
-.Between-buttons {
-    padding: 30px;
-}
+.floated {
+    float:left;
+    margin-right:25px;
+ }
+ 

@@ -18,8 +18,8 @@ const Perfil = ({user}) => {
                     <strong>Intereses:</strong> {user.topics}
                     </div>
                     <br></br>
-                    <Button className='Between-buttons' size='lg'><FaLock/></Button>
-                    <Button className='Between-buttons' size='lg'><FaLockOpen/></Button>
+                    <Button className='floated' size='lg'><FaLock/></Button>
+                    <Button className='floated' size='lg'><FaLockOpen/></Button>
                 </div>
                 <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
