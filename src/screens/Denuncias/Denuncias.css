@@ -1,7 +1,7 @@
 
 .div-main {
-  position: absolute;
-  left: 250px;
+  padding-left: 250px;
+  height: 80vh;
 }
 
 .flexbox-container {
