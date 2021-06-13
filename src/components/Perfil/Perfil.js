@@ -9,10 +9,13 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 const Perfil = ({user}) => {
     console.log('User es ', user)
 
-    const blockUser = (user) => (event) => {
+    const messageBlock = 'bloquear';
+    const messageUnblock = 'desbloquear';
+
+    const blockUser = (user, messageString) => (event) => {
         confirmAlert({
           title: 'Bloquear',
-          message: '¿Está seguro que desea bloquear a ' + user.name + '?',
+          message: '¿Está seguro que desea ' + messageString + ' a ' + user.name + '?',
           buttons: [
             {
               label: 'No',
@@ -39,8 +42,10 @@ const Perfil = ({user}) => {
                     <strong>Intereses:</strong> {user.topics}
                     </div>
                     <br></br>
-                    <Button className='Between-buttons' size='lg' onClick={blockUser(user)}><FaLock/></Button>
-                    <Button className='Between-buttons' size='lg'><FaLockOpen/></Button>
+                    <Button className='floated' size='lg'
+                      onClick={blockUser(user, messageBlock)}><FaLock/></Button>
+                    <Button className='floated' size='lg' 
+                      onClick={blockUser(user, messageUnblock)}><FaLockOpen/></Button>
                 </div>
                 <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
