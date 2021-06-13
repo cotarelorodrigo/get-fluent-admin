@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import server from '../../server'
 
-const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 const columns = [
                     {
                         label: 'Denunciado',

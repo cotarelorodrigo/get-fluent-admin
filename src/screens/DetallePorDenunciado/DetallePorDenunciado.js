@@ -4,9 +4,23 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import { MDBBtn } from 'mdbreact';
 import TablaDeDenuncias from '../../components/TablaDeDenuncias/TablaDeDenuncias';
 import Perfil from '../../components/Perfil/Perfil';
+import server from '../../server'
 
 import './DetallePorDenunciado.css'
-const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
+
+const desestimarDenuncia = (denunciado, denunciante) => {
+    const endpoint = server + 'denuncias/?denunciado=' + denunciado + '&denunciante=' + denunciante
+    console.log('Endpoint is ', endpoint)
+    axios.delete(endpoint)
+        .then(response => {
+            if (response.status === 200) {
+                window.location.reload();
+            } else {
+                console.log('error: ', response.status, ' ---- ', response.data)
+                alert('Error interactuando con la denuncia')
+            }
+        })
+}
 
 const DetallePorDenunciado = ({denunciado, ...props}) => {
     const [perfil, setPerfil] = useState([]);
@@ -15,7 +29,6 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
         const urlSplitted = window.location.href.split('/')
         denunciado = urlSplitted[urlSplitted.length-1]
     }
-    console.log('denunciado is ', denunciado)
 
     const formatDenuncias = (denuncias, users) => {
         var merged = denuncias.map(d => 
@@ -41,7 +54,8 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                 motivo: m.motivo,
                 fecha: formatDate(m.timestamp),
                 estado: m.estado,
-                accion: <button>Prueba</button>
+                accion: <button className='button' 
+                    onClick={() => desestimarDenuncia(denunciado, m.email)}>x</button>
             }
         });
         return merged;
