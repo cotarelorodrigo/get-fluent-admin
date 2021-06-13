@@ -20,10 +20,14 @@ const columns = [
                         sort: 'asc'
                     },
                     {
+                        label: 'Estado',
+                        field: 'estado',
+                    },
+                    {
                         label: '',
                         field: 'accion',
                     }
-                ]  
+                ]
 
 const TablaDeDenuncias = ({denuncias}) => {
         return (
