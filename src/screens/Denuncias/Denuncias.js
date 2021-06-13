@@ -20,10 +20,12 @@ export default function Denuncias() {
     return (
         <div class="div-main">
             <div class="flexbox-container">
-                <div class="flexbox-item flexbox-item-1"></div>
+                <div class="flexbox-item flexbox-item-1">
+                    <h1>Denuncias</h1>
+                </div>
                 <div class="flexbox-item flexbox-item-2">
                     <form onSubmit={handleSubmit}>
-                        <input onChange={handleChange} type='text' placeholder='Busca tu usuario' value={keyword}/>
+                        <input onChange={handleChange} style={{width: "90%"}} type='text' placeholder='Busca tu usuario' value={keyword}/>
                         <button>Search</button>
                     </form>
                 </div>
