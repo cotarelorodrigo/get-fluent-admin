@@ -69,11 +69,10 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
         <>
             <div className="denuncias"> 
             <Breadcrumb>
-                <Breadcrumb.Item href="#">Denuncias</Breadcrumb.Item>
+                <Breadcrumb.Item href="http://localhost:3000/denuncias">Denuncias</Breadcrumb.Item>
                 <Breadcrumb.Item active>{perfil.name} {perfil.lastName}</Breadcrumb.Item>
             </Breadcrumb>
 
-                <h1>Detalle por denunciado: {denunciado}</h1>
                 <div className="profile">
                     <Perfil user={perfil}/>
                 </div>
