@@ -72,7 +72,7 @@ export default function ListaDenunciados({ searchKeyword }) {
                     email: user.email,
                     cantidad_denuncias: user.cantidad_denuncias,
                     fecha: user.ultima_denuncia,
-                    ver:  <a href={link}>Ver</a> 
+                    ver: <a href={link}>Ver</a>
                 }
             });
 
@@ -86,7 +86,7 @@ export default function ListaDenunciados({ searchKeyword }) {
     }, [searchKeyword])
 
     return (
-        <MDBTable scrollY maxHeight="30vh">
+        <MDBTable scrollY maxHeight="50vh">
             <MDBTableHead columns={columns} />
             <MDBTableBody rows={usersWithDenuncias} />
         </MDBTable>
