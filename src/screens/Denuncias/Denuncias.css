@@ -1,6 +1,6 @@
 .div-main {
   padding-left: 250px;
-  height: 80vh;
+  height: 100%;
   background: rgb(255,255,255);
   background: linear-gradient(40deg, rgba(255,255,255,1) 0%, rgba(116,116,116,1) 74%, rgba(0,0,0,1) 100%); 
 }

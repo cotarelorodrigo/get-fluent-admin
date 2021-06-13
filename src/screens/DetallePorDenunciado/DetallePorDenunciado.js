@@ -33,15 +33,15 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                 var dd = x.getDate();
                 var mm = x.getMonth()+1;
                 var yy = x.getFullYear();
-                return dd +"/" + mm+"/" + yy;
-             }        
+                return dd + "/" + mm + "/" + yy;
+            }
             return {
                 completeName: m.name + ' ' + m.lastName,
                 email: m.email,
                 motivo: m.motivo,
                 fecha: formatDate(m.timestamp),
                 estado: m.estado,
-                // accion: <MDBBtn color="purple" size="sm">Button</MDBBtn>
+                accion: <button>Prueba</button>
             }
         });
         return merged;

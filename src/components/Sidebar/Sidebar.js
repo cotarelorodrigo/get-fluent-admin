@@ -35,8 +35,8 @@ const SidebarNav = styled.nav`
   width: 250px;
   height: 100vh;
   display: flex;
+  position: absolute;
   justify-content: center;
-  position: fixed;
   top: 80px;
   left: 0;
   transition: 350ms;
