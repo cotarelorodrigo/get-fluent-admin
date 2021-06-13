@@ -11,6 +11,11 @@ const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 const DetallePorDenunciado = ({denunciado, ...props}) => {
     const [perfil, setPerfil] = useState([]);
     const [denuncias, setDenuncias] = useState([]);
+    if (denunciado === undefined) {
+        const urlSplitted = window.location.href.split('/')
+        denunciado = urlSplitted[urlSplitted.length-1]
+    }
+    console.log('denunciado is ', denunciado)
 
     const formatDenuncias = (denuncias, users) => {
         var merged = denuncias.map(d => 
