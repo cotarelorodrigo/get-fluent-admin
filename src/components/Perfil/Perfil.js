@@ -4,7 +4,9 @@ import { FaLock, FaLockOpen } from 'react-icons/fa';
 import './Perfil.css'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import axios from 'axios';
 
+const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 
 const Perfil = ({user}) => {
     console.log('User es ', user)
@@ -23,7 +25,12 @@ const Perfil = ({user}) => {
             },
             {
               label: 'Si',
-              onClick: () => alert('Click yes')
+              onClick: () => axios.post(server + 'blocked-users', {"email": user.email})
+                            .then(blockedResponse => {
+                                console.log(blockedResponse);
+                                if (blockedResponse.status == 200)
+                                    alert('Usuario bloqueado')
+                            })  
             }
           ]
         });
