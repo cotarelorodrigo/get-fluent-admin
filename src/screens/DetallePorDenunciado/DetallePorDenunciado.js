@@ -62,7 +62,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     }
 
     useEffect(() => {
-        axios.get(server + 'user/?email=' + denunciado)
+        axios.get(server + 'user/?email=all')
         .then(userResponse => {
             axios.get(server + 'denuncias/' + denunciado)
             .then(response => {
