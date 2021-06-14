@@ -54,8 +54,8 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                 motivo: m.motivo,
                 fecha: formatDate(m.timestamp),
                 estado: m.estado,
-                accion: <button className='button' 
-                    onClick={() => desestimarDenuncia(denunciado, m.email)}>x</button>
+                accion: (m.estado === 'Desestimada' ? <></>:<button className='button' 
+                    onClick={() => desestimarDenuncia(denunciado, m.email)}>x</button>)
             }
         });
         return merged;
