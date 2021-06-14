@@ -9,9 +9,9 @@ import server from '../../server'
 import './DetallePorDenunciado.css'
 
 const desestimarDenuncia = (denunciado, denunciante) => {
-    const endpoint = server + 'denuncias/?denunciado=' + denunciado + '&denunciante=' + denunciante
+    const endpoint = server + 'denuncias/?denunciado=' + denunciado + '&denunciante=' + denunciante + '&estado=Desestimada'
     console.log('Endpoint is ', endpoint)
-    axios.delete(endpoint)
+    axios.put(endpoint)
         .then(response => {
             if (response.status === 200) {
                 window.location.reload();
