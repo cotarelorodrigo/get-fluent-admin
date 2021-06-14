@@ -6,8 +6,8 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import axios from 'axios';
 
-// const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
-const server = "http://0.0.0.0:8000/";
+const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
+// const server = "http://0.0.0.0:8000/";
 
 const Perfil = ({user}) => {
     console.log('User es ', user)
