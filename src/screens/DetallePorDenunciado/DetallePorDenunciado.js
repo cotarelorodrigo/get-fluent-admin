@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
-import { MDBBtn } from 'mdbreact';
+// import { MDBBtn } from 'mdbreact';
 import TablaDeDenuncias from '../../components/TablaDeDenuncias/TablaDeDenuncias';
 import Perfil from '../../components/Perfil/Perfil';
 import server from '../../server'
 
+// import '../Denuncias/Denuncias.css'
+// import '../../components/Sidebar/Sidebar.css'
 import './DetallePorDenunciado.css'
+// import Sidebar from '../../components/Sidebar/Sidebar.js'
 
 const desestimarDenuncia = (denunciado, denunciante) => {
     const endpoint = server + 'denuncias/?denunciado=' + denunciado + '&denunciante=' + denunciante + '&estado=Desestimada'

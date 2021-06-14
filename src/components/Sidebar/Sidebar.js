@@ -33,7 +33,7 @@ const Nav = styled.div`
 const SidebarNav = styled.nav`
   background: #6f79a8;
   width: 250px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   position: absolute;
   justify-content: center;
