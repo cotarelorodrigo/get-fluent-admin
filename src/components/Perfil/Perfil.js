@@ -13,7 +13,7 @@ const Perfil = ({user}) => {
     console.log('User es ', user)
 
     const messageBlock = 'Bloquear';
-    const messageUnblock = 'Besbloquear';
+    const messageUnblock = 'Desbloquear';
 
     const blockUser = (user) => (event) => {
        const messageString = messageBlock;
