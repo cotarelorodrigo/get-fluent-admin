@@ -34,6 +34,7 @@ const Perfil = ({user}) => {
                     console.log(response);
                     if (response.status === 200) {
                       alert('Usuario bloqueado con éxito')
+                      window.location.reload();
                     } else {
                       alert('Hubo un problema: ', response.status)
                     }
@@ -61,6 +62,7 @@ const Perfil = ({user}) => {
                  axios.delete(server + 'blocked-users/?email=' + user.email)
                  .then(response => {
                      console.log(response);
+                     window.location.reload();
                      if (response.status === 200) {
                        alert('Usuario desbloqueado con éxito')
                      } else {
@@ -93,6 +95,11 @@ const Perfil = ({user}) => {
                 </div>
                 <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
+                </div>
+                <br></br>
+                <br></br>
+                <div className='Perfil-center'>
+                    <strong>Estado:</strong> {user.is_blocked ? "Bloqueado" : "Desbloqueado"}
                 </div>
                 <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
                 
