@@ -101,7 +101,7 @@ const Perfil = ({user}) => {
                 <div className='Perfil-center'>
                     <strong>Estado:</strong> 
                     {
-                      user.is_blocked ? <b className="Perfil-block">Bloqueado</b> : <b className="Perfil-unblock">Desbloqueado</b>
+                      user.is_blocked ? <b className="Perfil-block"> Bloqueado</b> : <b className="Perfil-unblock"> Desbloqueado</b>
                     }
                 </div>
                 <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
