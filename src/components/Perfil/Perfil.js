@@ -6,36 +6,73 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import axios from 'axios';
 
-const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
+// const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
+const server = "http://0.0.0.0:8000/";
 
 const Perfil = ({user}) => {
     console.log('User es ', user)
 
-    const messageBlock = 'bloquear';
-    const messageUnblock = 'desbloquear';
+    const messageBlock = 'Bloquear';
+    const messageUnblock = 'Besbloquear';
 
-    const blockUser = (user, messageString) => (event) => {
+    const blockUser = (user) => (event) => {
+       const messageString = messageBlock;
         confirmAlert({
-          title: 'Bloquear',
-          message: '¿Está seguro que desea ' + messageString + ' a ' + user.name + '?',
+          title: messageString,
+          message: '¿Está seguro que desea ' + messageString.toLowerCase() + ' a ' + user.name + '?',
           buttons: [
             {
               label: 'No',
-              onClick: () => alert('Click No')
+              onClick: () => {}
             },
             {
               label: 'Si',
-              onClick: () => axios.post(server + 'blocked-users', {"email": user.email})
-                            .then(blockedResponse => {
-                                console.log(blockedResponse);
-                                if (blockedResponse.status == 200)
-                                    alert('Usuario bloqueado')
-                            })  
+              onClick: () => 
+              {
+                axios.post(server + 'blocked-users/?email=' + user.email)
+                .then(response => {
+                    console.log(response);
+                    if (response.status === 200) {
+                      alert('Usuario bloqueado con éxito')
+                    } else {
+                      alert('Hubo un problema: ', response.status)
+                    }
+                });
+              }
             }
           ]
         });
-    };
+      };
 
+      const unblockUser = (user) => (event) => {
+        const messageString = messageUnblock;
+         confirmAlert({
+           title: messageString,
+           message: '¿Está seguro que desea ' + messageString.toLowerCase() + ' a ' + user.name + '?',
+           buttons: [
+             {
+               label: 'No',
+               onClick: () => {}
+             },
+             {
+               label: 'Si',
+               onClick: () => 
+               {
+                 axios.delete(server + 'blocked-users/?email=' + user.email)
+                 .then(response => {
+                     console.log(response);
+                     if (response.status === 200) {
+                       alert('Usuario desbloqueado con éxito')
+                     } else {
+                       alert('Hubo un problema: ', response.status)
+                     }
+                 });
+               }
+             }
+           ]
+         });
+       };
+ 
     return (
         <>
             <div className='Perfil'>
@@ -50,9 +87,9 @@ const Perfil = ({user}) => {
                     </div>
                     <br></br>
                     <Button className='floated' size='lg'
-                      onClick={blockUser(user, messageBlock)}><FaLock/></Button>
+                      onClick={blockUser(user)}><FaLock/></Button>
                     <Button className='floated' size='lg' 
-                      onClick={blockUser(user, messageUnblock)}><FaLockOpen/></Button>
+                      onClick={unblockUser(user)}><FaLockOpen/></Button>
                 </div>
                 <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
