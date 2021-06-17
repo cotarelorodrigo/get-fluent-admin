@@ -1,0 +1,18 @@
+.denuncias {
+  padding-left:250px;
+}
+
+.table {
+  padding: 20px 50px 0px 20px;
+}
+
+.profile {
+  padding: 5px 30px;
+}
+
+.button {
+  background-color: #ef9a9a; /* Red */
+  color: white;
+  border: none;
+  font-size: 20px;
+}

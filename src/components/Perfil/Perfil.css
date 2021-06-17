@@ -1,0 +1,41 @@
+html, body, #root {
+    width: 100%;
+    height: 100%;
+  }
+  
+.Perfil {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px;
+}
+  
+.Perfil-left {
+    float: left;
+    width: 35%;
+    height: 100%;
+}
+
+.Perfil-center {
+    float: left;
+    width: 35%;
+    height: 100%;
+}
+
+.Perfil-block{
+    color: red;
+}
+
+.Perfil-unblock{
+    color: green;
+}
+
+.Perfil-right {
+    width:30%;
+    padding: 0px 50px 0px 0px;
+}
+
+.floated {
+    float:left;
+    margin-right:25px;
+ }
+ 
