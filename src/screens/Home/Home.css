@@ -1,10 +1,9 @@
 .div-main {
-  padding-left: 50px;
+  padding-left: 20%;
   height: 100%;
   background: rgb(255,255,255);
   padding-top: 70px;
 }
-
 
 .flexbox-container {
   height: 100%;
