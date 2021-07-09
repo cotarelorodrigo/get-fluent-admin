@@ -4,26 +4,44 @@ import DenunciasBox from '../../components/DenunciasBox/DenunciasBox'
 import ActividadesBox from '../../components/ActividadesBox/ActividadesBox'
 import MapBox from '../../components/MapBox/MapBox'
 import TopPaisesBox from '../../components/TopPaisesBox/TopPaisesBox'
+import MonthDropdown from '../../components/MonthDropdown/MonthDropdown'
+import YearDropdown from '../../components/YearDropdown/YearDropdown'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 
 export default function Home() {
 
     return (        
-        <div class="div-main">
-            <div class="flexbox-container">
-                <div class="flexbox-item-1">
-                    <ActividadesBox/>  
-                </div>
-                <div class="flexbox-item-2">
-                    <DenunciasBox/>  
-                </div>
-                <div class="flexbox-item-3">
-                    <MapBox/>  
-                </div>
-                <div class="flexbox-item-4">
-                    <TopPaisesBox/>  
-                </div>                                               
-            </div>
+        <div class="div-main">                   
+            <Container>
+                <Row>
+                    <Col xs={1}>
+                        <MonthDropdown/>
+                    </Col>
+                    <Col>
+                        <YearDropdown/>
+                    </Col>                                        
+                </Row>             
+                <Row>
+                    <Col>
+                        <ActividadesBox/>
+                    </Col>
+                    <Col>
+                        <DenunciasBox/>
+                    </Col>
+                </Row>
+                <br></br>
+                <Row>
+                    <Col>
+                        <MapBox/>
+                    </Col>
+                    <Col>
+                        <TopPaisesBox/>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }

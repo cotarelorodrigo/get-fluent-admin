@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class TopPaisesBox extends Component {
     state = {
-        box: {width: '200px', height: '130px', border: '2px solid black'},
+        box: {width: '200px', height: '250px', border: '2px solid black'},
     };
     
     
