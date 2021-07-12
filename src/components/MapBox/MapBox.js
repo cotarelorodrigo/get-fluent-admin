@@ -3,14 +3,7 @@ import { WorldMap } from "react-svg-worldmap"
 import server from '../../server'
 import axios from 'axios';
 
-const mapCountry =
-    {
-        'Argentina': 'ar',
-        "Chile": 'cl',
-        "Bolivia": 'bo',
-        "España": 'es',
-        "Italia": 'it'
-  }
+
 
 export default function MapBox({año, mes}) {
     const [dataPerCountry, setDataPerCountry] = useState([])
@@ -23,9 +16,9 @@ export default function MapBox({año, mes}) {
         .then(response => {
             let dataCountry = response.data
             console.log(dataCountry['stats'])
-            let dataDash = []
+            let dataDash = [{country: 'cl', value: 200000}, {country: 'bo', value: 23232424}, {country: 'es', value: 21419129}, {country:'it', value: 21402041}] //Mock
             for (const [country, valueCountry] of Object.entries(dataCountry['stats'])) {
-                dataDash.push({country: mapCountry[country], value: valueCountry})
+                dataDash.push({country: country, value: valueCountry})
               }
             console.log(dataDash)
             setDataPerCountry(dataDash)  

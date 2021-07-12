@@ -35,7 +35,7 @@ export default function Home() {
                 <br></br>
                 <Row>
                     <Col>
-                        <MapBox año={2021} mes={5}/>
+                        <MapBox año={2021} mes={7}/>
                     </Col>
                     <Col>
                         <TopPaisesBox/>
