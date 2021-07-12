@@ -1,31 +1,42 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from "react";
 import { WorldMap } from "react-svg-worldmap"
+import server from '../../server'
+import axios from 'axios';
 
-const data =
-    [
-      { country: "cn", value: 1389618778 }, // china
-      { country: "in", value: 1311559204 }, // india
-      { country: "us", value: 331883986 },  // united states
-      { country: "id", value: 264935824 },  // indonesia
-      { country: "pk", value: 210797836 },  // pakistan
-      { country: "br", value: 210301591 },  // brazil
-      { country: "ng", value: 208679114 },  // nigeria
-      { country: "bd", value: 161062905 },  // bangladesh
-      { country: "ru", value: 141944641 },  // russia
-      { country: "mx", value: 127318112 }   // mexico
-    ]
+const mapCountry =
+    {
+        'Argentina': 'ar',
+        "Chile": 'cl',
+        "Bolivia": 'bo',
+        "España": 'es',
+        "Italia": 'it'
+  }
 
-export default class MapBox extends Component {
-    state = {
-        box: {width: '500px', height: '400px', border: '2px solid black'},
-    };
+export default function MapBox({año, mes}) {
+    const [dataPerCountry, setDataPerCountry] = useState([])
+
+
+    useEffect(() => {
+        let endpoint = server + `stats/countries?mes=${mes}&ano=${año}`
+        console.log("Endpoint: " + endpoint)
+        axios.get(endpoint)
+        .then(response => {
+            let dataCountry = response.data
+            console.log(dataCountry['stats'])
+            let dataDash = []
+            for (const [country, valueCountry] of Object.entries(dataCountry['stats'])) {
+                dataDash.push({country: mapCountry[country], value: valueCountry})
+              }
+            console.log(dataDash)
+            setDataPerCountry(dataDash)  
+        })
     
+    }, [año, mes])
+
     
-    render() {
-        return (
-            <div style={this.state.box}>
-                <WorldMap color="red" title="" value-suffix="people" size="lg" data={data} />
+    return (
+            <div style={{width: '500px', height: '400px', border: '2px solid black'}}>
+                <WorldMap color="red" title="" value-suffix="people" size="lg" data={dataPerCountry} />
             </div>
-        )
-    }
+    )
 }
