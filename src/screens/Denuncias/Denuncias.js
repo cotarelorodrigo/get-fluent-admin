@@ -18,7 +18,7 @@ export default function Denuncias() {
 
 
     return (
-        <div class="div-main">
+        <div class="div-main-denuncias">
             <div class="flexbox-container">
                 <div class="flexbox-item flexbox-item-1">
                     <h1>Denuncias</h1>
