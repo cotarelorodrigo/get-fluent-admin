@@ -72,7 +72,7 @@ export default function ListaDenunciados() {
             });
 
             usuarios.sort(function(a,b){
-                return new Date(a.fecha) - new Date(b.fecha)
+                return b.cantidad_denuncias - a.cantidad_denuncias
             })
 
             setusersWithDenuncias({'columns': columns, "rows": usuarios})
