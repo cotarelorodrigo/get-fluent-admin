@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import { MDBDataTable} from 'mdbreact';
 import server from '../../server'
 
 const columns = [
@@ -13,13 +13,11 @@ const columns = [
                     },
                     {
                         label: '#',
-                        field: 'cantidad_denuncias',
-                        sort: 'asc'
+                        field: 'cantidad_denuncias'
                     },
                     {
                         label: 'Fecha',
-                        field: 'fecha',
-                        sort: 'asc'
+                        field: 'fecha'
                     },
                     {
                         label: ' ',
@@ -28,7 +26,7 @@ const columns = [
                 ]  
 
 
-export default function ListaDenunciados({ searchKeyword }) {
+export default function ListaDenunciados() {
     const [usersWithDenuncias, setusersWithDenuncias] = useState([])
 
 
@@ -51,9 +49,6 @@ export default function ListaDenunciados({ searchKeyword }) {
                 }
             })
             usuarios = usuarios["users"].filter(user => user["cantidad_denuncias"] > 0)
-            if (searchKeyword) {
-                usuarios = usuarios.filter(user => user["name"].toLowerCase().startsWith(searchKeyword.toLowerCase()))
-            }
             usuarios.forEach(user => {
                 var dates = denuncias["denuncias"]
                                 .filter(denuncia => denuncia["denunciado"] === user["email"])
@@ -80,15 +75,23 @@ export default function ListaDenunciados({ searchKeyword }) {
                 return new Date(a.fecha) - new Date(b.fecha)
             })
 
-            setusersWithDenuncias(usuarios)
+            setusersWithDenuncias({'columns': columns, "rows": usuarios})
         })
     
-    }, [searchKeyword])
+    }, [])
+
 
     return (
-        <MDBTable scrollY maxHeight="50vh">
-            <MDBTableHead columns={columns} />
-            <MDBTableBody rows={usersWithDenuncias} />
-        </MDBTable>
+        <MDBDataTable 
+            entriesLabel="Mostrar"
+            searchLabel="Buscar"
+            paginationLabel={["Anterior", "Siguiente"]}
+            infoLabel={["Mostrando", "a", "de", "entradas"]}
+            order={["cantidad_denuncias", "desc"]}
+            striped 
+            bordered 
+            small 
+            data={usersWithDenuncias}>
+        </MDBDataTable>
     )
 }
