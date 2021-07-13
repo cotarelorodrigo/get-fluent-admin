@@ -1,44 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Home.css"
 import DenunciasBox from '../../components/DenunciasBox/DenunciasBox'
 import ActividadesBox from '../../components/ActividadesBox/ActividadesBox'
 import MapBox from '../../components/MapBox/MapBox'
 import TopPaisesBox from '../../components/TopPaisesBox/TopPaisesBox'
-import MonthDropdown from '../../components/MonthDropdown/MonthDropdown'
-import YearDropdown from '../../components/YearDropdown/YearDropdown'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Home() {
+    const [startDate, setStartDate] = useState(new Date(2021, 1, 1))
+    const [endDate, setEndDate] = useState(new Date(2021, 2, 1))
 
     return (        
         <div class="div-main">                   
             <Container>
                 <Row>
-                    <Col xs={1}>
-                        <MonthDropdown/>
+                    <Col>
+                        <strong>Desde: </strong>
+                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy/MM/dd"/>
                     </Col>
                     <Col>
-                        <YearDropdown/>
-                    </Col>                                        
+                        <strong>Hasta: </strong>
+                        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)}  dateFormat="yyyy/MM/dd"/>
+                    </Col>                           
                 </Row>             
-                <Row>
-                    <Col>
-                        <ActividadesBox/>
-                    </Col>
-                    <Col>
-                        <DenunciasBox/>
-                    </Col>
-                </Row>
-                <br></br>
                 <Row>
                     <Col>
                         <MapBox año={2021} mes={7}/>
                     </Col>
                     <Col>
+                        <ActividadesBox/>
+                    </Col>
+                </Row>
+                <br></br>
+                <Row>
+                    <Col>
                         <TopPaisesBox/>
+                    </Col>
+                    <Col>
+                        <DenunciasBox/>
                     </Col>
                 </Row>
             </Container>
