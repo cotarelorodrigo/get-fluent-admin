@@ -82,35 +82,34 @@ const Perfil = ({user}) => {
                 <h2> {user.name} {user.lastName} </h2>
                 <div className='Perfil-left'>
                     <div>
-                    <strong>Habla:</strong> {user.nativeLanguage}
+                      <strong>Habla:</strong> {user.nativeLanguage}
                     </div>
                     <br></br>
                     <div>
-                    <strong>Intereses:</strong> {user.topics}
+                      <strong>Intereses:</strong> {user.topics}
                     </div>
                     <br></br>                    
-                    <Button className='floated' size='lg'
-                      onClick={blockUser(user)}><FaLock/></Button>
-                    <Button className='floated' size='lg' 
-                      onClick={unblockUser(user)}><FaLockOpen/></Button>
-                    <br></br>
-                    <div className='Feedbacks'>
-                      <ListaFeedbacks/>
-                    </div>                    
+                      <Button className='floated' size='lg'
+                        onClick={blockUser(user)}><FaLock/></Button>
+                      <Button className='floated' size='lg' 
+                        onClick={unblockUser(user)}><FaLockOpen/></Button>
+                    <br></br>                                        
                 </div>
                 <div className='Perfil-center'>
-                    <strong>Aprende:</strong> {user.interestLanguage}
+                  <strong>Aprende:</strong> {user.interestLanguage}
                 </div>
                 <br></br>
                 <br></br>
                 <div className='Perfil-center'>
-                    <strong>Estado:</strong> 
-                    {
-                      user.is_blocked ? <b className="Perfil-block"> Bloqueado</b> : <b className="Perfil-unblock"> Desbloqueado</b>
-                    }
-                </div>
+                  <strong>Estado:</strong> 
+                  {
+                    user.is_blocked ? <b className="Perfil-block"> Bloqueado</b> : <b className="Perfil-unblock"> Desbloqueado</b>
+                  }
+                </div>                
                 <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
-                
+                <div className='Feedback'>
+                    <ListaFeedbacks/>
+                </div>
             </div>
         </>
     )
