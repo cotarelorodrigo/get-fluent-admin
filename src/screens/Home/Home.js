@@ -11,8 +11,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Home() {
-    const [startDate, setStartDate] = useState(new Date(2021, 1, 1))
-    const [endDate, setEndDate] = useState(new Date(2021, 2, 1))
+    const [startDate, setStartDate] = useState(new Date(2020, 12, 1))
+    const [endDate, setEndDate] = useState(new Date(2021, 1, 1))
+
+    const dateToString = (date) => {
+        var dd = String(date.getDate()).padStart(2, '0');
+        var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = date.getFullYear();
+        return yyyy + '-' + mm + '-' + dd
+    }
 
     return (        
         <div class="div-main">                   
@@ -20,19 +27,19 @@ export default function Home() {
                 <Row>
                     <Col>
                         <strong>Desde: </strong>
-                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy/MM/dd"/>
+                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy-MM-dd"/>
                     </Col>
                     <Col>
                         <strong>Hasta: </strong>
-                        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)}  dateFormat="yyyy/MM/dd"/>
+                        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)}  dateFormat="yyyy-MM-dd"/>
                     </Col>                           
                 </Row>             
                 <Row>
                     <Col>
-                        <MapBox año={2021} mes={7}/>
+                        <MapBox desde={dateToString(startDate)} hasta={dateToString(endDate)}/>
                     </Col>
                     <Col>
-                        <ActividadesBox/>
+                        <ActividadesBox desde={dateToString(startDate)} hasta={dateToString(endDate)}/>
                     </Col>
                 </Row>
                 <br></br>

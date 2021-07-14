@@ -5,12 +5,12 @@ import axios from 'axios';
 
 
 
-export default function MapBox({año, mes}) {
+export default function MapBox({desde, hasta}) {
     const [dataPerCountry, setDataPerCountry] = useState([])
 
 
     useEffect(() => {
-        let endpoint = server + `stats/countries?mes=${mes}&ano=${año}`
+        let endpoint = server + `stats/countries?desde=${desde}&hasta=${hasta}`
         console.log("Endpoint: " + endpoint)
         axios.get(endpoint)
         .then(response => {
@@ -24,7 +24,7 @@ export default function MapBox({año, mes}) {
             setDataPerCountry(dataDash)  
         })
     
-    }, [año, mes])
+    }, [desde, hasta])
 
     
     return (
