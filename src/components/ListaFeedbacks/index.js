@@ -4,91 +4,55 @@ import server from '../../server'
 
 const columns = [
                     {
-                        label: 'Denunciado',
-                        field: 'denunciado',
+                        label: 'Nombre',
+                        field: 'name',
                     },
                     {
                         label: 'Email',
                         field: 'email'
                     },
                     {
-                        label: '#',
-                        field: 'cantidad_denuncias',
-                        sort: 'asc'
+                        label: 'Comentario',
+                        field: 'comment',
                     },
                     {
                         label: 'Fecha',
-                        field: 'fecha',
-                        sort: 'asc'
-                    },
-                    {
-                        label: ' ',
-                        field: 'ver'
+                        field: 'date',
                     }
                 ]  
 
 
-export default function ListaDenunciados({ searchKeyword }) {
-    const [usersWithDenuncias, setusersWithDenuncias] = useState([])
+export default function ListaFeedbacks({ email }) {
+    const [usersWithFeedbacks, setusersWithFeedbacks] = useState([])
 
 
     useEffect(() => {
         Promise.all([
-            fetch(server + "denuncias/").then(res => res.json()),
-            fetch(server + "/user/?email=all").then(res => res.json())
-        ]).then(([denuncias, usuarios]) => {
-            console.log("Denuncias: " + denuncias)
-            console.log("Users: " + usuarios)
-            const denunciasGroupByUser = denuncias["denuncias"].reduce((acc, it) => {
-                acc[it.denunciado] = acc[it.denunciado] + 1 || 1;
-                return acc
-            }, {})
-            usuarios["users"].forEach(user => {
-                if(user["email"] in denunciasGroupByUser){
-                    user["cantidad_denuncias"] = denunciasGroupByUser[user["email"]]
-                } else {
-                    user["cantidad_denuncias"] = 0
-                }
-            })
-            usuarios = usuarios["users"].filter(user => user["cantidad_denuncias"] > 0)
-            if (searchKeyword) {
-                usuarios = usuarios.filter(user => user["name"].toLowerCase().startsWith(searchKeyword.toLowerCase()))
-            }
-            usuarios.forEach(user => {
-                var dates = denuncias["denuncias"]
-                                .filter(denuncia => denuncia["denunciado"] === user["email"])
-                                .map(denuncia => { return new Date(denuncia["timestamp"].split(',')[0]) })
-                var lastDenuncia = new Date(Math.max.apply(null, dates))
-                var dd = String(lastDenuncia.getDate()).padStart(2, '0');
-                var mm = String(lastDenuncia.getMonth() + 1).padStart(2, '0'); //January is 0!
-                var yyyy = lastDenuncia.getFullYear();
-                user["ultima_denuncia"] = yyyy + '-' + mm + '-' + dd
-            })
+            fetch(server + "feedback/?comentado=" + email).then(res => res.json())
+        ]).then(([feedbacks]) => {
+        
+            feedbacks = feedbacks["feedbacks"]
+            console.log("Feedbacks: " + feedbacks)
 
-            usuarios = usuarios.map(user => {
-                const link = "http://localhost:3000/denunciado/" + user.email
+            feedbacks = feedbacks.map(feedback => {
+                
                 return {
-                    denunciado: user.name + " " + user.lastName,
-                    email: user.email,
-                    cantidad_denuncias: user.cantidad_denuncias,
-                    fecha: user.ultima_denuncia,
-                    ver: <a href={link}>Ver</a>
+                    name: feedback.name + " " + feedback.lastName,
+                    email: feedback.comentador,
+                    comment: feedback.comentario,
+                    date: feedback.timestamp
                 }
             });
 
-            usuarios.sort(function(a,b){
-                return new Date(a.fecha) - new Date(b.fecha)
-            })
-
-            setusersWithDenuncias(usuarios)
+            setusersWithFeedbacks(feedbacks)
         })
     
-    }, [searchKeyword])
+    }, [])
 
     return (
         <MDBTable scrollY maxHeight="50vh">
             <MDBTableHead columns={columns} />
-            <MDBTableBody rows={usersWithDenuncias} />
+            <MDBTableBody rows={usersWithFeedbacks} />
         </MDBTable>
     )
 }

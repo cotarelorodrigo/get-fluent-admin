@@ -73,6 +73,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
             });    
         })
     }, []);
+
     useEffect(() => {
         axios.get(server + 'user/' + denunciado)
         .then(response => {
@@ -82,7 +83,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     }, []) 
     
 
-    return (
+    return ( perfil.email ? 
         <>
             <div className="denuncias"> 
             <Breadcrumb>
@@ -97,7 +98,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                     <TablaDeDenuncias denuncias={denuncias}/>
                 </div>
             </div>
-        </>
+        </> :  <span>Cargando perfil...</span>
     )
 };
 

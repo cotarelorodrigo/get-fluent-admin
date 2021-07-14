@@ -108,7 +108,7 @@ const Perfil = ({user}) => {
                 </div>                
                 <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
                 <div className='Feedback'>
-                    <ListaFeedbacks/>
+                    <ListaFeedbacks email={user.email}/>
                 </div>
             </div>
         </>
