@@ -5,6 +5,7 @@ import './Perfil.css'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import axios from 'axios';
+import ListaFeedbacks from '../../components/ListaFeedbacks';
 
 const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 // const server = "http://0.0.0.0:8000/";
@@ -87,11 +88,15 @@ const Perfil = ({user}) => {
                     <div>
                     <strong>Intereses:</strong> {user.topics}
                     </div>
-                    <br></br>
+                    <br></br>                    
                     <Button className='floated' size='lg'
                       onClick={blockUser(user)}><FaLock/></Button>
                     <Button className='floated' size='lg' 
                       onClick={unblockUser(user)}><FaLockOpen/></Button>
+                    <br></br>
+                    <div className='Feedbacks'>
+                      <ListaFeedbacks/>
+                    </div>                    
                 </div>
                 <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
