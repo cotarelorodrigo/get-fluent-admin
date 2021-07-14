@@ -6,49 +6,8 @@ import axios from 'axios';
 //https://canvasjs.com/react-charts/line-chart/
 //[{ x: '2021/02/01', y: 24 }, { x: '2021/02/02', y: 18 }]
 
-const state = {
-    series: [{
-        name: "Usuarios activos",
-        data: [
-            [1486684800000, 34], 
-            [1486771200000, 43], 
-            [1486857600000, 31] , 
-            [1486944000000, 43], 
-            [1487030400000, 33], 
-            [1487116800000, 52]
-          ]
-    }],
 
-    seriesLine2: [{
-        name: "# Mensajes",
-        data: [
-            [1486684800000, 65], 
-            [1486771200000, 23], 
-            [1486857600000, 31] , 
-            [1486944000000, 11], 
-            [1487030400000, 86], 
-            [1487116800000, 24]
-          ]
-    }],
-    optionsLine2: {
-        chart: {
-            id: 'tw',
-            type: 'line',
-            height: 200
-        },
-        colors: ['#546E7A'],
-        yaxis: {
-            labels: {
-                minWidth: 40
-            }
-        },
-        xaxis: {
-            type: 'datetime'
-        }
-    }
-}
-
-export default function  ActividadesBox({desde, hasta}) {
+export default function ActividadesBox({desde, hasta}) {
 
     const options = {
         chart: {

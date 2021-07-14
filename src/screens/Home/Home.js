@@ -45,7 +45,7 @@ export default function Home() {
                 <br></br>
                 <Row>
                     <Col>
-                        <TopPaisesBox/>
+                        <TopPaisesBox desde={dateToString(startDate)} hasta={dateToString(endDate)}/>
                     </Col>
                     <Col>
                         <DenunciasBox/>

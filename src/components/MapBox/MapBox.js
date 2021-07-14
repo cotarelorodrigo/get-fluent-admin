@@ -4,13 +4,12 @@ import server from '../../server'
 import axios from 'axios';
 
 
-
 export default function MapBox({desde, hasta}) {
     const [dataPerCountry, setDataPerCountry] = useState([])
 
 
     useEffect(() => {
-        let endpoint = server + `stats/countries?desde=${desde}&hasta=${hasta}`
+        let endpoint = server + `stats/countries?desde=${desde}&hasta=${hasta}&iso=true`
         console.log("Endpoint: " + endpoint)
         axios.get(endpoint)
         .then(response => {
