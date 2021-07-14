@@ -11,12 +11,12 @@ html, body, #root {
   
 .Perfil-left {
     float: left;
-    width: 50%;
+    width: 70%;
 }
 
 .Perfil-center {
     float: left;
-    width: 50%;
+    width: 30%;
 }
 
 .Perfil-block{
