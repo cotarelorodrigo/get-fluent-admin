@@ -57,10 +57,19 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                 motivo: m.motivo,
                 fecha: formatDate(m.timestamp),
                 estado: m.estado,
-                accion: (m.estado === 'Desestimada' ? <></>:<button className='button' 
+                accion: (m.estado !== 'Pendiente' ? <></>:<button className='button' 
                     onClick={() => desestimarDenuncia(denunciado, m.email)}>x</button>)
             }
         });
+
+        merged.sort((a, b) => {
+            if (a.estado > b.estado)
+              return -1;
+            if (a.estado < b.estado)
+              return 1;
+            return 0;
+        })
+
         return merged;
     }
 
