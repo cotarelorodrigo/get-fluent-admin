@@ -35,12 +35,20 @@ export default function ListaFeedbacks({ email }) {
             console.log("Feedbacks: " + feedbacks)
 
             feedbacks = feedbacks.map(feedback => {
+
+                let dateToParse = new Date(feedback["timestamp"])
+
+                console.log("Timestamp: " + dateToParse)
+
+                let dd = String(dateToParse.getDate()).padStart(2, '0')
+                let mm = String(dateToParse.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = dateToParse.getFullYear();
                 
                 return {
                     name: feedback.name + " " + feedback.lastName,
                     email: feedback.comentador,
                     comment: feedback.comentario,
-                    date: feedback.timestamp
+                    date: dd + '/' + mm + '/' + yyyy
                 }
             });
 
