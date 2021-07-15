@@ -97,7 +97,8 @@ const Perfil = ({user}) => {
                           onClick={unblockUser(user)}><FaLockOpen/></Button>
                       </div>                   
                       <br></br>
-                      <div className='Feedback'>
+                      <h3>Referencias</h3>
+                      <div className='Feedback'>                        
                         <ListaFeedbacks email={user.email}/>
                       </div>                                                             
                   </div>

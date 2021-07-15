@@ -102,8 +102,9 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
 
                 <div className="profile">
                     <Perfil user={perfil}/>
-                </div>
+                </div>               
                 <div className="table">
+                    <h3>Denuncias</h3> 
                     <TablaDeDenuncias denuncias={denuncias}/>
                 </div>
             </div>
