@@ -58,7 +58,7 @@ export default function ListaFeedbacks({ email }) {
     }, [])
 
     return (
-        <MDBTable scrollY maxHeight="50vh">
+        <MDBTable scrollY maxHeight="30vh">
             <MDBTableHead columns={columns} />
             <MDBTableBody rows={usersWithFeedbacks} />
         </MDBTable>
