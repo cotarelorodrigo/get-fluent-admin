@@ -57,10 +57,19 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
                 motivo: m.motivo,
                 fecha: formatDate(m.timestamp),
                 estado: m.estado,
-                accion: (m.estado === 'Desestimada' ? <></>:<button className='button' 
+                accion: (m.estado !== 'Pendiente' ? <></>:<button className='button' 
                     onClick={() => desestimarDenuncia(denunciado, m.email)}>x</button>)
             }
         });
+
+        merged.sort((a, b) => {
+            if (a.estado > b.estado)
+              return -1;
+            if (a.estado < b.estado)
+              return 1;
+            return 0;
+        })
+
         return merged;
     }
 
@@ -73,6 +82,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
             });    
         })
     }, []);
+
     useEffect(() => {
         axios.get(server + 'user/' + denunciado)
         .then(response => {
@@ -82,7 +92,7 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     }, []) 
     
 
-    return (
+    return ( perfil.email ? 
         <>
             <div className="denuncias"> 
             <Breadcrumb>
@@ -92,12 +102,13 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
 
                 <div className="profile">
                     <Perfil user={perfil}/>
-                </div>
+                </div>               
                 <div className="table">
+                    <h3>Denuncias</h3> 
                     <TablaDeDenuncias denuncias={denuncias}/>
                 </div>
             </div>
-        </>
+        </> :  <span>Cargando perfil...</span>
     )
 };
 
