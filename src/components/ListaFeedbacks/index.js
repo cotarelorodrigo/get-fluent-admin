@@ -24,6 +24,7 @@ const columns = [
 
 export default function ListaFeedbacks({ email }) {
     const [usersWithFeedbacks, setusersWithFeedbacks] = useState([])
+    const [isCurrentlyLoading, setIsCurrentlyLoading] = useState(true)
 
 
     useEffect(() => {
@@ -51,16 +52,30 @@ export default function ListaFeedbacks({ email }) {
                     date: dd + '/' + mm + '/' + yyyy
                 }
             });
-
             setusersWithFeedbacks(feedbacks)
+            setIsCurrentlyLoading(false)
         })
     
     }, [])
 
     return (
-        <MDBTable scrollY maxHeight="30vh">
-            <MDBTableHead columns={columns} />
-            <MDBTableBody rows={usersWithFeedbacks} />
-        </MDBTable>
+        <>
+        {
+            (usersWithFeedbacks.length !== 0) ?
+                <MDBTable scrollY maxHeight="30vh">
+                    <MDBTableHead columns={columns} />
+                    <MDBTableBody rows={usersWithFeedbacks} />
+                </MDBTable>
+                :
+                <>
+                    {
+                        isCurrentlyLoading ?
+                            <h5> </h5>
+                        :
+                            <h5>Este usuario no tiene referencias aún</h5>
+                    }
+                </>
+        }
+        </>
     )
 }
