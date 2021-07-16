@@ -47,7 +47,7 @@ export default function ListaDenunciados() {
             console.log("Users: " + usuarios)
 
             usuarios = usuarios.map(user => {
-                const link = "http://localhost:3000/denunciado/" + user.email
+                const link = "http://localhost:3000/usuarios/" + user.email
                 return {
                     email: user.email,
                     nombre: user.name,
