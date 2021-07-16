@@ -24,8 +24,6 @@ export default function TopPaisesBox({desde, hasta}) {
                     return 1
             })
             dataDash = dataDash.slice(0, TOP)
-            console.log("TOP")
-            console.log(dataDash)
             setTopCountries(dataDash)  
         })
     
@@ -33,8 +31,8 @@ export default function TopPaisesBox({desde, hasta}) {
 
  
         return (
-            <div style={{width: '500px', height: '250px', border: '2px solid black'}}>
-                <h2>Top Paises</h2>
+            <div style={{width: '500px', height: '200px'}}>
+                <h2>Top {TOP} [Usuarios Activos]</h2>
                 {
                     topCountries.map((c) => (
                         <strong>{c['country']}: {c['value']}<br></br></strong>

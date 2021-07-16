@@ -1,42 +1,6 @@
 .div-main {
   padding-left: 20%;
   height: 100%;
-  background: rgb(255,255,255);
-  padding-top: 70px;
-}
-
-.flexbox-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.flexbox-item {
-  width: 200px;
-}
-
-.flexbox-item-1 {
-  width: 120vh;
-  min-height: 100px;
-  padding-left: 200px;
-}
-
-.flexbox-item-2 {
-  width: 120vh;
-  min-height: 100px;
-  padding-left: 400px;
-}
-
-.flexbox-item-3 {
-  width: 120vh;
-  min-height: 100px;
-  padding-left: 200px;
-}
-
-.flexbox-item-4 {
-  width: 120vh;
-  min-height: 100px;
-  padding-left: 400px;
+  background: #ffffff;
+  padding-top: 20px;
 }

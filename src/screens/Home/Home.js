@@ -34,7 +34,7 @@ export default function Home() {
                         <DatePicker selected={endDate} onChange={(date) => setEndDate(date)}  dateFormat="yyyy-MM-dd"/>
                     </Col>                           
                 </Row>             
-                <Row>
+                <Row style={{height: "550px"}}>
                     <Col>
                         <MapBox desde={dateToString(startDate)} hasta={dateToString(endDate)}/>
                     </Col>
@@ -48,7 +48,7 @@ export default function Home() {
                         <TopPaisesBox desde={dateToString(startDate)} hasta={dateToString(endDate)}/>
                     </Col>
                     <Col>
-                        <DenunciasBox/>
+                        <DenunciasBox desde={dateToString(startDate)} hasta={dateToString(endDate)}/>
                     </Col>
                 </Row>
             </Container>

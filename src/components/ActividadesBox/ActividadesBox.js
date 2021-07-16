@@ -77,8 +77,10 @@ export default function ActividadesBox({desde, hasta}) {
     }, [desde, hasta])
 
     return (
-        <div style={{width: '500px', height: '400px'}}>
+        <div style={{width: '500px', height: '520px'}}>
+            <h3>Cantidad de usuarios activos</h3>
             <ReactApexChart options={options} series={seriesUserActivos} type="line" height={200} />
+            <h3>Cantidad de mensajes intercambiados</h3>
             <ReactApexChart options={options2} series={seriesCantMensajes} type="line" height={200} />
         </div>
     )

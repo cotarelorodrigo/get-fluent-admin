@@ -27,7 +27,8 @@ export default function MapBox({desde, hasta}) {
 
     
     return (
-            <div style={{width: '500px', height: '400px', border: '2px solid black'}}>
+            <div style={{width: '500px', height: '520px'}}>
+                <h3>Usuarios activos por pais</h3>
                 <WorldMap color="red" title="" value-suffix="people" size="lg" data={dataPerCountry} />
             </div>
     )
