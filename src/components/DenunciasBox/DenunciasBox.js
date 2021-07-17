@@ -20,7 +20,7 @@ export default function DenunciasBox({desde, hasta}){
         <div style={{width: '500px', height: '200px'}}>
             <h3>Estadísticas de denuncias</h3>
             <strong>En el periodo filtrado entraron {statsDenuncias['Recibidas']} denuncias</strong><br></br>
-            <strong>De estas de resolvieron {statsDenuncias['Resueltas']} denuncias</strong><br></br>
+            <strong>De estas se resolvieron {statsDenuncias['Resueltas']} denuncias</strong><br></br>
             <strong>Quedaron {statsDenuncias['Pendientes']} denuncias sin resolver</strong><br></br>
         </div>
     )

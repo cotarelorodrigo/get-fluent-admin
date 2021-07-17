@@ -12,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default function Home() {
     const [startDate, setStartDate] = useState(new Date(2020, 12, 1))
-    const [endDate, setEndDate] = useState(new Date(2021, 1, 1))
+    const [endDate, setEndDate] = useState(new Date())
 
     const dateToString = (date) => {
         var dd = String(date.getDate()).padStart(2, '0');
