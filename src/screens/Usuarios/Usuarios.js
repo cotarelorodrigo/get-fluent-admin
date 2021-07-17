@@ -8,14 +8,12 @@ export default function Usuarios() {
 
     return (
         <div class="div-main">
-            <div class="flexbox-container">
-                <div class="flexbox-item flexbox-item-1">
+                <div className='title'>
                     <h1>Usuarios</h1>
                 </div>
-                <div class="flexbox-item flexbox-item-3">
+                <div className='list-users'>
                     <ListaUsuarios/>
                 </div>
-            </div>
         </div>
     )
 }

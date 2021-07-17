@@ -72,6 +72,7 @@ export default function ListaDenunciados() {
     return (
         <MDBDataTable 
             entriesLabel="Mostrar"
+            entriesOptions={[ 5, 10, 15 ]}
             searchLabel="Buscar"
             paginationLabel={["Anterior", "Siguiente"]}
             infoLabel={["Mostrando", "a", "de", "entradas"]}
