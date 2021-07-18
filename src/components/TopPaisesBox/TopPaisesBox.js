@@ -34,8 +34,8 @@ export default function TopPaisesBox({desde, hasta}) {
             <div style={{width: '500px', height: '200px'}}>
                 <h2>Top {TOP} [Usuarios Activos]</h2>
                 {
-                    topCountries.map((c) => (
-                        <strong>{c['country']}: {c['value']}<br></br></strong>
+                    topCountries.map((c, i) => (
+                        <strong>{i + 1}. {c['country']}: {c['value']}<br></br></strong>
                     ))
                 }
             </div>
