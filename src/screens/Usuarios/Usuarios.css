@@ -1,9 +1,9 @@
  
-.div-main {
-  width: 100%;
+.div-main-usuarios {
+  padding-left: 20%;
   height: 100%;
-  padding: 0px 0px;
-  background: rgb(255,255,255);
+  background: #ffffff;
+  padding-top: 20px;
 }
 
 .flexbox-container {

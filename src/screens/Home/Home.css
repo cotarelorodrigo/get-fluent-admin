@@ -1,24 +1,6 @@
 .div-main {
-  padding-left: 50px;
+  padding-left: 20%;
   height: 100%;
-  padding-top: 70px;
-}
-
-
-.flexbox-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.flexbox-item {
-  width: 200px;
-}
-
-.flexbox-item-1 {
-  width: 120vh;
-  min-height: 100px;
-  padding-left: 400px;
+  background: #ffffff;
+  padding-top: 20px;
 }
