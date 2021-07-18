@@ -95,11 +95,6 @@ const DetallePorDenunciado = ({denunciado, ...props}) => {
     return ( perfil.email ? 
         <>
             <div className="denuncias"> 
-            <Breadcrumb>
-                <Breadcrumb.Item href="http://localhost:3000/denuncias">Denuncias</Breadcrumb.Item>
-                <Breadcrumb.Item active>{perfil.name} {perfil.lastName}</Breadcrumb.Item>
-            </Breadcrumb>
-
                 <div className="profile">
                     <Perfil user={perfil}/>
                 </div>               
