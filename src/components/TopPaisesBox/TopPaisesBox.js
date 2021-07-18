@@ -13,7 +13,7 @@ export default function TopPaisesBox({desde, hasta}) {
         .then(response => {
             let dataCountry = response.data
             console.log(dataCountry['stats'])
-            let dataDash = [{country: 'Chile', value: 200000}, {country: 'Bolivia', value: 23232424}, {country: 'España', value: 21419129}, {country:'Italia', value: 21402041}, {country:'Canada', value: 0}] //Mock
+            let dataDash = [{country: 'cl', value: 5}, {country: 'bo', value: 10}, {country: 'es', value: 10}, {country:'it', value: 6}] //Mock
             for (const [country, valueCountry] of Object.entries(dataCountry['stats'])) {
                 dataDash.push({country: country, value: valueCountry})
             }
