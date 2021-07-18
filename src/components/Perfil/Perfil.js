@@ -5,6 +5,7 @@ import './Perfil.css'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import axios from 'axios';
+import ListaFeedbacks from '../../components/ListaFeedbacks';
 
 const server = "http://tp1-tdp2-backend-dev.herokuapp.com/";
 // const server = "http://0.0.0.0:8000/";
@@ -79,33 +80,41 @@ const Perfil = ({user}) => {
         <>
             <div className='Perfil'>
                 <h2> {user.name} {user.lastName} </h2>
-                <div className='Perfil-left'>
-                    <div>
-                    <strong>Habla:</strong> {user.nativeLanguage}
-                    </div>
-                    <br></br>
-                    <div>
-                    <strong>Intereses:</strong> {user.topics}
-                    </div>
-                    <br></br>
-                    <Button className='floated' size='lg'
-                      onClick={blockUser(user)}><FaLock/></Button>
-                    <Button className='floated' size='lg' 
-                      onClick={unblockUser(user)}><FaLockOpen/></Button>
-                </div>
-                <div className='Perfil-center'>
+                <div className='Center-left'>
+                  <div className='Perfil-left'>
+                      <div>
+                        <strong>Habla:</strong> {user.nativeLanguage}
+                      </div>
+                      <br></br>
+                      <div>
+                        <strong>Intereses:</strong> {user.topics}
+                      </div>
+                      <br></br>
+                      <div>
+                      <Button size='lg'
+                          onClick={blockUser(user)}><FaLock/></Button>
+                        <Button className='btn_unblock' size='lg' 
+                          onClick={unblockUser(user)}><FaLockOpen/></Button>
+                      </div>                   
+                      <br></br>
+                      <h3>Referencias</h3>
+                      <div className='Feedback'>                        
+                        <ListaFeedbacks email={user.email}/>
+                      </div>                                                             
+                  </div>
+                  <div className='Perfil-center'>
                     <strong>Aprende:</strong> {user.interestLanguage}
-                </div>
-                <br></br>
-                <br></br>
-                <div className='Perfil-center'>
+                  </div>
+                  <br></br>
+                  <br></br>
+                  <div className='Perfil-center'>
                     <strong>Estado:</strong> 
                     {
                       user.is_blocked ? <b className="Perfil-block"> Bloqueado</b> : <b className="Perfil-unblock"> Desbloqueado</b>
                     }
-                </div>
+                  </div>
+                </div>                                              
                 <img className='Perfil-right' src={user.uriProfilePicture} alt="new"/>
-                
             </div>
         </>
     )

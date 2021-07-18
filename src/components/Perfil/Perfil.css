@@ -11,14 +11,12 @@ html, body, #root {
   
 .Perfil-left {
     float: left;
-    width: 35%;
-    height: 100%;
+    width: 70%;
 }
 
 .Perfil-center {
     float: left;
-    width: 35%;
-    height: 100%;
+    width: 30%;
 }
 
 .Perfil-block{
@@ -31,11 +29,23 @@ html, body, #root {
 
 .Perfil-right {
     width:30%;
-    padding: 0px 50px 0px 0px;
 }
 
 .floated {
     float:left;
     margin-right:25px;
  }
+
+ .Center-left {
+    float: left;
+    width: 70%;
+}
+
+.Feedback {
+    width: 100%;
+}
+
+.btn_unblock{
+    margin-left:20px;
+}
  
