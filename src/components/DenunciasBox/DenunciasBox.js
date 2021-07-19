@@ -22,6 +22,7 @@ export default function DenunciasBox({desde, hasta}){
             <strong>En el periodo filtrado entraron {statsDenuncias['Recibidas']} denuncias</strong><br></br>
             <strong>De estas se resolvieron {statsDenuncias['Resueltas']} denuncias</strong><br></br>
             <strong>Quedaron {statsDenuncias['Pendientes']} denuncias sin resolver</strong><br></br>
+            <strong>El total historico de denuncias sin resolver es {statsDenuncias['Pendientes_historico']}</strong><br></br>
         </div>
     )
     
