@@ -15,7 +15,7 @@ export default function MapBox({desde, hasta}) {
         .then(response => {
             let dataCountry = response.data
             console.log(dataCountry['stats'])
-            let dataDash = [{country: 'cl', value: 5}, {country: 'bo', value: 10}, {country: 'es', value: 10}, {country:'it', value: 6}] //Mock
+            let dataDash = [{country: 'cl', value: 5}, {country: 'es', value: 4}, {country:'it', value: 6}] //Mock
             for (const [country, valueCountry] of Object.entries(dataCountry['stats'])) {
                 dataDash.push({country: country, value: valueCountry})
               }
