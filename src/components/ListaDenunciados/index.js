@@ -23,9 +23,13 @@ const columns = [
                         label: ' ',
                         field: 'ver'
                     }
-                ]  
-
-
+                ]
+                
+function filterObject(obj, callback) {
+    return Object.fromEntries(Object.entries(obj).
+        filter(([key, val]) => callback(val, key)));
+    }
+                  
 export default function ListaDenunciados() {
     const [usersWithDenuncias, setusersWithDenuncias] = useState([])
 
@@ -35,7 +39,10 @@ export default function ListaDenunciados() {
             fetch(server + "denuncias/").then(res => res.json()),
             fetch(server + "/user/?email=all").then(res => res.json())
         ]).then(([denuncias, usuarios]) => {
-            console.log("Denuncias: " + denuncias)
+            console.log("Denuncias: " + denuncias["denuncias"])
+            // denuncias = filterObject(denuncias["denuncias"], (denuncias) => denuncias["estado"] === "Pendiente" )
+            denuncias["denuncias"] = denuncias["denuncias"].filter( (denuncias) => denuncias["estado"] === "Pendiente" )
+            console.log("Denuncias filtradas: " + denuncias["denuncias"])
             console.log("Users: " + usuarios)
             const denunciasGroupByUser = denuncias["denuncias"].reduce((acc, it) => {
                 acc[it.denunciado] = acc[it.denunciado] + 1 || 1;
